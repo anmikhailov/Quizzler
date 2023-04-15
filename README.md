@@ -5,5 +5,6 @@ This is a trivia quiz app. Multiple choice question apps are one of the most pop
 * UIKit/Storyboard.
 * Model-View-Controller or MVC pattern for app development.
 * Swift structures and functions with outputs.
+* UIAlertController
 
 ![DEMO](https://raw.githubusercontent.com/anmikhailov/Quizzler/master/.github/images/demo.gif)
