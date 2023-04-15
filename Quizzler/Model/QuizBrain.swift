@@ -57,4 +57,7 @@ struct QuizBrain {
             score = 0
         }
     }
+    func isLastQuestion() -> Bool {
+        return questionNumber == quiz.count - 1
+    }
 }

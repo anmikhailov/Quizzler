@@ -39,9 +39,15 @@ class ViewController: UIViewController {
             }
         }
         
-        quizBrain.nextQuestion()
         
-        Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+        
+        if !quizBrain.isLastQuestion() {
+            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+        } else {
+            showResult()
+        }
+        
+        quizBrain.nextQuestion()
     }
     
     @objc func updateUI() {
@@ -56,6 +62,20 @@ class ViewController: UIViewController {
         choose1Button.setTitle(quizBrain.getAnswers()[0], for: .normal)
         choose2Button.setTitle(quizBrain.getAnswers()[1], for: .normal)
         choose3Button.setTitle(quizBrain.getAnswers()[2], for: .normal)
+    }
+    
+    func showResult() {
+        
+        let score = quizBrain.getScore()
+        
+        let alertWindow = UIAlertController(title: "Result", message: "Your score: \(score)", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Start new round", style: .default) { (action) in
+            self.updateUI()
+        }
+        
+        alertWindow.addAction(action)
+        
+        present(alertWindow, animated: true)
     }
 }
 
