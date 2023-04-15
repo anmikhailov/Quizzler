@@ -23,6 +23,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        choose1Button.layer.cornerRadius = 20
+        choose2Button.layer.cornerRadius = 20
+        choose3Button.layer.cornerRadius = 20
+        
         updateUI()
     }
     
